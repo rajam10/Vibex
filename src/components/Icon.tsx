@@ -1,0 +1,8 @@
+import React from 'react';
+import Svg, { Circle, Line, Path, Polyline, Rect } from 'react-native-svg';
+import { colors } from '@/src/theme';
+export function Icon({ name, size = 22, color = colors.text }: { name: string; size?: number; color?: string }) {
+  const common = { stroke: color, strokeWidth: 1.8, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, fill: 'none' };
+  const paths: Record<string, React.ReactNode> = { home: <Path {...common} d="M3 10.5 12 3l9 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 19.5v-9Z" />, search: <><Circle {...common} cx="10.8" cy="10.8" r="6.8" /><Line {...common} x1="16" y1="16" x2="21" y2="21" /></>, library: <><Rect {...common} x="4" y="4" width="16" height="16" rx="2" /><Line {...common} x1="8" y1="8" x2="16" y2="8" /><Line {...common} x1="8" y1="12" x2="16" y2="12" /><Line {...common} x1="8" y1="16" x2="13" y2="16" /></>, play: <Path fill={color} d="M8 5.7v12.6c0 .8.9 1.3 1.6.9l9.5-6.3c.6-.4.6-1.3 0-1.7L9.6 4.8C8.9 4.4 8 4.9 8 5.7Z" />, pause: <><Rect fill={color} x="6" y="5" width="4" height="14" rx="1" /><Rect fill={color} x="14" y="5" width="4" height="14" rx="1" /></>, heart: <Path {...common} d="M20.8 8.8c0 5.2-8.8 10.1-8.8 10.1S3.2 14 3.2 8.8A4.6 4.6 0 0 1 12 6.3a4.6 4.6 0 0 1 8.8 2.5Z" />, chevron: <Polyline {...common} points="9,18 15,12 9,6" />, more: <><Circle fill={color} cx="5" cy="12" r="1.2" /><Circle fill={color} cx="12" cy="12" r="1.2" /><Circle fill={color} cx="19" cy="12" r="1.2" /></> };
+  return <Svg width={size} height={size} viewBox="0 0 24 24">{paths[name] ?? <Circle {...common} cx="12" cy="12" r="8" />}</Svg>;
+}

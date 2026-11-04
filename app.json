@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "Vibex",
+    "slug": "vibex",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "vibex",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "plugins": [
+      "expo-router",
+      ["expo-audio", {"microphonePermission": false}]
+    ],
+    "android": {
+      "package": "com.vibex.player",
+      "predictiveBackGestureEnabled": true
+    },
+    "experiments": {"typedRoutes": true}
+  }
+}
